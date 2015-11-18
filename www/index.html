@@ -2,10 +2,10 @@
 <html>
 	<head>
 	<title>Watchguard</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" /> -->
+ <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+  <meta name="apple-mobile-web-app-capable" content="yes" />
 
-<!--   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1"> -->
 
    <script src="js/jquery.mobile.min.js"></script>
 	   <script src="js/jquery-1.11.3.min.js"></script>
@@ -63,6 +63,7 @@ function onBackKeyDown(e) {
    <script type="text/javascript">
     function onLoad() {
         document.addEventListener("deviceready", onDeviceReady, false);
+        alert('dd');
     }
     
     // Cordova is loaded and it is now safe to make calls Cordova methods
@@ -92,6 +93,24 @@ function onBackKeyDown(e) {
 
   }
 </style>
+
+  <script type="text/javascript">
+
+   function OnLoad(){
+     document.addEventListener('deviceready', function(){
+        //enabling zoom control
+         cordova.plugins.ZoomControl.ZoomControl("true");
+         // enabling built in zoom control
+         cordova.plugins.ZoomControl.setBuiltInZoomControls("true");
+         // enabling display zoom control
+         cordova.plugins.ZoomControl.setDisplayZoomControls("true");
+
+     }, function(){
+         alert('error deviceready');
+     });
+
+   }
+    </script>
 
 <style type="text/css">
   @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,600);  
@@ -184,7 +203,7 @@ a.control_next {
 </style>
 
 	</head>
-	<body style="padding:0; margin:0;">
+	<body onload="OnLoad();" style="padding:0; margin:0;">
    <!-- <body onload="onLoad()"> -->
 
 
